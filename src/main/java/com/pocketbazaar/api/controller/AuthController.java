@@ -39,11 +39,18 @@ public class AuthController {
     private UserService userService;
 
     @PostMapping("/signup")
-    public String signup(@RequestBody User user) {
-        // Register the user by calling the service method which encrypts the password
-        userService.registerUser(user);
-        return "User registered successfully!";
+public String signup(@RequestBody User user) {
+    System.out.println("First Name: " + user.getFirstname());
+    // Check if email is already taken
+    if (userService.isEmailTaken(user.getEmail())) {
+        return "Email is already registered!";
     }
+    
+    // Register the user by calling the service method which encrypts the password
+    userService.registerUser(user);
+    return "User registered successfully!";
+}
+
 
     @PostMapping("/login")
     public String login(@RequestBody User user) {

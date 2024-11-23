@@ -27,6 +27,9 @@
 //     }
 // }
 
+
+
+
 package com.pocketbazaar.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +54,10 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public boolean isEmailTaken(String email) {
+        return userRepository.findByEmail(email) != null;
+    }
+    
     // Find user by email
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
