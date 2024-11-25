@@ -13,6 +13,17 @@ public class User {
     private String email;
     private String username;
     private String password;
+    private boolean active;  // Active status field (true or false)
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+
 
     // Getters and Setters
     public String getId() {

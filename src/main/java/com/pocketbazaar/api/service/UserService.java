@@ -68,4 +68,9 @@ public class UserService {
         // Use PasswordEncoder to match the raw password with the stored hashed password
         return passwordEncoder.matches(rawPassword, hashedPassword);
     }
+    public boolean isValidUser(String email) {
+        // Check if the user exists and is active (you can modify this logic as per your need)
+        User user = userRepository.findByEmail(email);  // Assume you have a method to find user by email
+        return user != null && user.isActive();
+}
 }
