@@ -12,7 +12,7 @@ public class Product {
     private String name;
     private double price;
     private String category;
-    // private String description;
+    private String media;
 
     // Constructor
     public Product() {}
@@ -34,13 +34,13 @@ public class Product {
         this.name = name;
     }
 
-    // public String getDescription() {
-    //     return description;
-    // }
+    public String getMedia() {
+        return media;
+    }
 
-    // public void setDescription(String description) {
-    //     this.description = description;
-    // }
+    public void setMedia(String media) {
+        this.media = media;
+    }
 
     public double getPrice() {
         return price;
