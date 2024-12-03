@@ -32,6 +32,8 @@
 
 package com.pocketbazaar.api.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -73,4 +75,8 @@ public class UserService {
         User user = userRepository.findByEmail(email);  // Assume you have a method to find user by email
         return user != null && user.isActive();
 }
+ // Fetch all users
+    public List<User> getAllUsers() {
+        return userRepository.findAll();  // Fetch all users from the database
+    }
 }

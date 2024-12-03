@@ -105,7 +105,6 @@ public class OrderController {
                         .orElseThrow(() -> new RuntimeException("Product not found: " + product.getId())))
                 .collect(Collectors.toList());
 
-        // Set the actual products in the order
         order.setProducts(productList);
 
         // Calculate total amount based on product prices

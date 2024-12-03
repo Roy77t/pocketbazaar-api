@@ -97,7 +97,7 @@ public class Order {
     private String userId; // To link orders to specific users (if applicable)
     private List<Product> products; // List of products in the order
     private OrderStatus status; // Use Enum for status
-    private double totalAmount; // Total price of the order
+    private double totalAmount; 
     private Date createdAt;
         private Date updatedAt;
     // Constructor
