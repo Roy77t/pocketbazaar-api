@@ -24,7 +24,6 @@ public class AuthController {
         userService.registerUser(user);
         return "User registered successfully!";
     }
-
     @PostMapping("/login")
     public String login(@RequestBody User user) {
         User existingUser = userService.findByEmail(user.getEmail());
@@ -39,6 +38,11 @@ public class AuthController {
 
         // Generate JWT token
         String token = jwtUtil.generateToken(existingUser.getEmail());
+
+        // Save the token in the database
+        existingUser.setToken(token);
+        userService.saveUser(existingUser);
+
         return "Login successful! Token: " + token;
     }
 }

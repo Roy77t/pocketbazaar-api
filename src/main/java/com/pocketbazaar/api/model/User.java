@@ -13,6 +13,7 @@ public class User {
     private String email;
     private String username;
     private String password;
+    private String token; // JWT Token field
     private boolean active;  // Active status field (true or false)
 
     public boolean isActive() {
@@ -23,7 +24,13 @@ public class User {
         this.active = active;
     }
 
+    public String getToken() {
+        return token;
+    }
 
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     // Getters and Setters
     public String getId() {

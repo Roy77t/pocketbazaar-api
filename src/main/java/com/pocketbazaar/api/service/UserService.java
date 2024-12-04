@@ -70,13 +70,27 @@ public class UserService {
         // Use PasswordEncoder to match the raw password with the stored hashed password
         return passwordEncoder.matches(rawPassword, hashedPassword);
     }
-    public boolean isValidUser(String email) {
-        // Check if the user exists and is active (you can modify this logic as per your need)
-        User user = userRepository.findByEmail(email);  // Assume you have a method to find user by email
-        return user != null && user.isActive();
+
+
+   public boolean isValidUser(String email) {
+    User user = userRepository.findByEmail(email);
+    if (user == null) {
+        System.out.println("User not found in database for email: " + email);
+        return false;
+    }
+    if (!user.isActive()) {
+        System.out.println("User is not active for email: " + email);
+        return false;
+    }
+    return true;
 }
- // Fetch all users
+
+
+
+public User saveUser(User user) {
+    return userRepository.save(user);
+}
     public List<User> getAllUsers() {
-        return userRepository.findAll();  // Fetch all users from the database
+        return userRepository.findAll();  
     }
 }
