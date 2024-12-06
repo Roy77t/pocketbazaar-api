@@ -7,6 +7,7 @@ public class CartItem {
     private String productName;
     private int quantity;
     private double price;
+    private String media;
 
     // Getters and Setters
     public String getProductId() {
@@ -39,6 +40,13 @@ public class CartItem {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+    public String getMedia() {
+        return media;
+    }
+
+    public void setMedia(String media) {
+        this.media = media;
     }
 }
 

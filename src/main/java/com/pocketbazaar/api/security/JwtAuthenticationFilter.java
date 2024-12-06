@@ -14,7 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.io.IOException;
 
-@Component  // Registering JwtAuthenticationFilter as a Spring Bean
+@Component 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;

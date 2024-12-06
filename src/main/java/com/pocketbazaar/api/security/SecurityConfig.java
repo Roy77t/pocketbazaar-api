@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/public/**","/api/auth/login","/api/auth/signup").permitAll()
+                .requestMatchers("/api/auth/login","/api/auth/signup","/api/products/all").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .cors()

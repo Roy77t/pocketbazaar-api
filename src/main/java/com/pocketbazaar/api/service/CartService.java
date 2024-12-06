@@ -36,6 +36,7 @@ public class CartService {
             cartItem.setProductId(productId);
             cartItem.setProductName(product.getName());
             cartItem.setPrice(product.getPrice());
+            cartItem.setMedia(product.getMedia()); 
             cartItem.setQuantity(quantity);
             cart.getItems().add(cartItem);
         } else {
