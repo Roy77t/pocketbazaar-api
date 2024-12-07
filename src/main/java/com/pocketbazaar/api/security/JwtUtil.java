@@ -89,15 +89,5 @@ public class JwtUtil {
     public boolean isTokenValid(String token) {
         return !isTokenExpired(token); 
     }
-    // public String generateToken(User user) {
-    //     Date now = new Date();
-    //     Date expiryDate = new Date(now.getTime() + expirationTime);
-
-    //     return Jwts.builder()
-    //             .setSubject(user.getUsername())
-    //             .setIssuedAt(new Date())
-    //             .setExpiration(expiryDate)
-    //             .signWith(secretKey)
-    //             .compact();
-    // }
+   
 }
