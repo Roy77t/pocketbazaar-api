@@ -68,13 +68,14 @@ package com.pocketbazaar.api.controller;
 
 import com.pocketbazaar.api.model.Product;
 import com.pocketbazaar.api.repository.ProductRepository;
+import com.pocketbazaar.api.util.CurrentUserSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -85,6 +86,14 @@ public class ProductController {
     // 1. Add Product (Custom Path)
     @PostMapping("/add")
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
+
+        // String email = CurrentUserSession.getCurrentUserDetails().getUsername();
+        String userId = CurrentUserSession.getCurrentUserDetails().getUsername();
+
+        
+        // Set the user's email in the product before saving
+        product.setUserId(userId);
+        
         Product savedProduct = productRepository.save(product);
         return ResponseEntity.ok(savedProduct);
     }
@@ -126,5 +135,17 @@ public class ProductController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    // 6. Get Products for Current User
+    @GetMapping("/user/products")
+    public ResponseEntity<List<Product>> getProductsForCurrentUser() {
+        
+        String userId = CurrentUserSession.getCurrentUserDetails().getUsername();
+        
+        // Fetch products by user email
+        List<Product> products = productRepository.findByUserId(userId);
+        
+        return ResponseEntity.ok(products);
     }
 }

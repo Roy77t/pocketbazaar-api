@@ -13,8 +13,17 @@ public class Product {
     private double price;
     private String category;
     private String media;
-
+    private String userId; 
     // Constructor
+
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
     public Product() {}
 
     // Getters and Setters

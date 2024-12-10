@@ -9,7 +9,7 @@ public class Address {
 
     @Id
     private String id;
-    private String userId; // Link address with user
+    private String userId;
     private String name;
     private String mobile;
     private String pincode;
@@ -27,13 +27,6 @@ public class Address {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public String getName() {
         return name;
@@ -89,6 +82,13 @@ public class Address {
 
     public void setState(String state) {
         this.state = state;
+    }
+    public String getUserID() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
 

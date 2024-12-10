@@ -1,13 +1,14 @@
 package com.pocketbazaar.api.repository;
 
-
+import com.pocketbazaar.api.model.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import com.pocketbazaar.api.model.Product;
+import java.util.List;
 
 @Repository
 public interface ProductRepository extends MongoRepository<Product, String> {
-    // Additional custom queries (if needed) can be added here
-}
 
+    // Fetch products by user email
+    List<Product> findByUserId(String userId);
+}

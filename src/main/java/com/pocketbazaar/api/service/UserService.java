@@ -132,7 +132,7 @@ public class UserService implements org.springframework.security.core.userdetail
             throw new UsernameNotFoundException("User not found with email: " + username);
         }
         return org.springframework.security.core.userdetails.User
-                .withUsername(user.getEmail())
+                .withUsername(user.getId())
                 .password(user.getPassword())
                 .authorities("USER") // Default authority
                 .accountExpired(false)
