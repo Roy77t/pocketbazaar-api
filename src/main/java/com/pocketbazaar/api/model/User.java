@@ -11,6 +11,7 @@ public class User {
     private String firstname;
     private String lastname;
     private String email;
+    private String name;  
     private String username;
     private String password;
     private String token; // JWT Token field
@@ -24,6 +25,14 @@ public class User {
         this.active = active;
     }
 
+    public String getName() {
+        return name;  // This is the method that was missing
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public String getToken() {
         return token;
     }
@@ -76,5 +85,8 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getFullName() {
+        return (this.firstname + " " + this.lastname).trim();  // Combine firstname and lastname
     }
 }

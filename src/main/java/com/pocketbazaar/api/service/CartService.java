@@ -1,6 +1,5 @@
 package com.pocketbazaar.api.service;
 
-
 import com.pocketbazaar.api.model.Cart;
 import com.pocketbazaar.api.model.CartItem;
 import com.pocketbazaar.api.model.Product;
@@ -8,7 +7,6 @@ import com.pocketbazaar.api.repository.CartRepository;
 import com.pocketbazaar.api.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class CartService {
