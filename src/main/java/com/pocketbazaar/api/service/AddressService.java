@@ -66,7 +66,7 @@ public class AddressService {
 
     // 1. Add address for the current user
     public Address addAddressForUser(Address address, String userId) {
-        logger.info("Adding address for userId: {}", userId);
+        logger.info("Adding address for userId:", userId);
         address.setUserId(userId); // Associate the address with the user
         return addressRepository.save(address);
     }
