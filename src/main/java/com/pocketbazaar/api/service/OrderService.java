@@ -28,6 +28,7 @@ public class OrderService {
     public Order createOrder(String userId, String name, String mobile, String pincode, String district, String address, String locality, String state) {
         // Step 1: Fetch user details using UserRepository
         User user = userRepository.findById(userId)
+        
             .orElseThrow(() -> new RuntimeException("User not found"));
 
         // Get full name from user (combine firstname and lastname)

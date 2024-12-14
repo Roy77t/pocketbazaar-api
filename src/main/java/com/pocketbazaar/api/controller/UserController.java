@@ -13,7 +13,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // Endpoint to fetch all users
     @GetMapping("/users")
     public List<User> getUsers() {
         return userService.getAllUsers();  // Fetch all users from the service

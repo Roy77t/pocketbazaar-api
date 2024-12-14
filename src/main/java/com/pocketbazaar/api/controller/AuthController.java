@@ -24,6 +24,8 @@ public class AuthController {
         userService.registerUser(user);
         return "User registered successfully!";
     }
+
+    
     @PostMapping("/login")
     public String login(@RequestBody User user) {
         User existingUser = userService.findByEmail(user.getEmail());

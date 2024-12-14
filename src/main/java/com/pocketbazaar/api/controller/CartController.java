@@ -28,10 +28,14 @@ public class CartController {
         return ResponseEntity.ok(cart);
     }
 
-    @GetMapping
-    public ResponseEntity<Cart> getCart() {
-        String userId = CurrentUserSession.getCurrentUserDetails().getUsername();
-        Cart cart = cartService.getCart(userId);
-        return ResponseEntity.ok(cart);
-    }
+
+
+    
+
+    // @GetMapping
+    // public ResponseEntity<Cart> getCart() {
+    //     String userId = CurrentUserSession.getCurrentUserDetails().getUsername();
+    //     Cart cart = cartService.getCart(userId);
+    //     return ResponseEntity.ok(cart);
+    // }
 }

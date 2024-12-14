@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+// import java.util.Optional;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -21,17 +21,10 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    // 1. Add Product (Custom Path)
     @PostMapping("/add")
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
-
-        // String email = CurrentUserSession.getCurrentUserDetails().getUsername();
         String userId = CurrentUserSession.getCurrentUserDetails().getUsername();
-
-        
-        // Set the user's email in the product before saving
         product.setUserId(userId);
-        
         Product savedProduct = productRepository.save(product);
         return ResponseEntity.ok(savedProduct);
     }
@@ -41,14 +34,6 @@ public class ProductController {
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productRepository.findAll();
         return ResponseEntity.ok(products);
-    }
-
-    // 3. Get Product by ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable String id) {
-        Optional<Product> product = productRepository.findById(id);
-        return product.map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
     }
 
     // 4. Update Product (Custom Path)
@@ -75,15 +60,34 @@ public class ProductController {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
     // 6. Get Products for Current User
-    @GetMapping("/user/products")
-    public ResponseEntity<List<Product>> getProductsForCurrentUser() {
+    // @GetMapping("/user/products")
+    // public ResponseEntity<List<Product>> getProductsForCurrentUser() {
         
-        String userId = CurrentUserSession.getCurrentUserDetails().getUsername();
+    //     String userId = CurrentUserSession.getCurrentUserDetails().getUsername();
         
-        // Fetch products by user email
-        List<Product> products = productRepository.findByUserId(userId);
+    //     // Fetch products by user email
+    //     List<Product> products = productRepository.findByUserId(userId);
         
-        return ResponseEntity.ok(products);
-    }
+    //     return ResponseEntity.ok(products);
+    // }
+
+
+    // @GetMapping("/{id}")
+    // public ResponseEntity<Product> getProductById(@PathVariable String id) {
+    //     Optional<Product> product = productRepository.findById(id);
+    //     return product.map(ResponseEntity::ok)
+    //             .orElse(ResponseEntity.notFound().build());
+    // }
 }

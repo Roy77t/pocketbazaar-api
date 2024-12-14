@@ -6,5 +6,4 @@ import com.pocketbazaar.api.model.User;
 
 public interface UserRepository extends MongoRepository<User, String> {
     User findByEmail(String email);
-    // User findByUserId(String userId);
 }

@@ -20,7 +20,6 @@ public class OrderController {
     // Endpoint to create a new order
     @PostMapping("/create")
     public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
-        // Get the current user from JWT token (via CurrentUserSession)
         String userId = CurrentUserSession.getCurrentUserDetails().getUsername(); 
 
         // Create the order with address details passed in the request body

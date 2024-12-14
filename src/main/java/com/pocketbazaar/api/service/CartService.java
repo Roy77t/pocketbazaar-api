@@ -50,6 +50,7 @@ public class CartService {
 
     public Cart removeProductFromCart(String userId, String productId) {
         Cart cart = cartRepository.findByUserId(userId)
+        
                 .orElseThrow(() -> new RuntimeException("Cart not found"));
 
         cart.getItems().removeIf(item -> item.getProductId().equals(productId));
@@ -61,9 +62,14 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
-    public Cart getCart(String userId) {
-        return cartRepository.findByUserId(userId)
-                .orElseThrow(() -> new RuntimeException("Cart not found"));
-    }
+
+
+
+
+
+    // public Cart getCart(String userId) {
+    //     return cartRepository.findByUserId(userId)
+    //             .orElseThrow(() -> new RuntimeException("Cart not found"));
+    // }
 }
 
